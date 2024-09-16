@@ -11,10 +11,15 @@ GEOG281 - Introduction to Geographic Information Systems (GIS) (Fall 2022)
 GEOG387 - Spatial Databases (Fall 2023)
 > This course focuses on design and development of a GIS database. It addresses theoretical issues regarding data models used in GIS and data modeling techniques used in designing spatial databases. It considers the processing required to input data from a variety of sources and clean and edit a multi-theme database and introduces students to creation and use of internet map services.
 
+GEOG381 - Advanced Geographic Information Systems (Spring 2024)
+> Students learn theoretical and operational approaches to advanced spatial analysis using geographical information systems. Emphasis is placed on the use of automation procedures using models and programming to address a variety of topics that may include but are not limited to digital terrain modeling, suitability analysis, network analysis, and cell-based models. The domain of spatial problems explored may vary by instructor.
+
 ### Technologies
 
 _GEOG181 —_ QGIS
 
 _GEOG281 —_ ArcGIS Pro
 
-_GEOG381 —_ ArcGIS Pro, QGIS, PostgreSQL
+_GEOG387 —_ ArcGIS Pro, QGIS, PostgreSQL
+
+_GEOG381 —_ ArcGIS Pro, Python
