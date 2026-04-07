@@ -1,0 +1,405 @@
+/* general positioning */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background: #5a7a9b;
+    color: white;
+    padding: 15px 20px 15px 10px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+#banner h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#map {
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.leaflet-top.leaflet-right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* info icon */
+#info-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    color: #5a7a9b;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 2001;
+}
+
+#info-icon:hover {
+    background: #e0e0e0;
+}
+
+#info-popup {
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    background: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    max-width: 400px;
+    z-index: 2002;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+#info-popup p {
+    margin: 0;
+}
+
+#info-popup.hidden {
+    display: none;
+}
+
+#backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+}
+
+#backdrop.hidden {
+    display: none;
+}
+
+/* graph modal */
+#graph-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3000;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 900px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#graph-modal.hidden {
+    display: none;
+}
+
+#graph-content {
+    position: relative;
+}
+
+#close-graph {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    padding: 0;
+    font-weight: bold;
+}
+
+#close-graph:hover {
+    background: #b71c1c;
+}
+
+#graph-title {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+#water-level-chart {
+    max-height: 500px;
+}
+
+#graph-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2999;
+}
+
+#graph-backdrop.hidden {
+    display: none;
+}
+
+/* date display */
+#date-display {
+    position: fixed;
+    bottom: 95px;
+    left: 10px;
+    z-index: 1002;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: fit-content;
+}
+
+#date-display label {
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* time slider controls */
+#time-slider-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 10px;
+    right: 10px;
+    z-index: 1001;
+    background: white;
+    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    overflow-y: auto;
+}
+
+.slider-container {
+    width: 100%;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.slider-wrapper {
+    position: relative;
+    padding: 15px 0 20px 0;
+}
+
+#timeSlider {
+    width: 100%;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    z-index: 10;
+}
+
+#timeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 17px;
+    height: 17px;
+    background: #2c5282;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+#timeSlider::-moz-range-thumb {
+    width: 17px;
+    height: 17px;
+    background: #2c5282;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.slider-track {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    top: 15px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slider-ticks {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    top: 9px;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.tick {
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: #999;
+    transform: translateX(-50%);
+}
+
+.tick.year-tick {
+    height: 12px;
+    background: #333;
+    width: 2px;
+}
+
+.year-label {
+    position: absolute;
+    font-size: 13px;
+    color: #333;
+    transform: translateX(-50%);
+    top: 20px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+#dateLabel {
+    font-weight: bold;
+    color: #333;
+    margin-left: 5px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* legend */
+.legend {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 220px;
+    margin-top: 10px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+.legend h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* legend items */
+.legend div {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.legend div svg {
+    flex-shrink: 0;
+}
+
+/* layer selector */
+.layer-selector-control {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 10px;
+}
+
+.layer-selector-control label {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+.layer-selector-control select {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+/* data attribution box */
+.data-attribution {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 220px;
+}
+
+/* north arrow */
+.north-arrow {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.north-arrow-inner {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.north-arrow-inner span {
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+}
+
+/* scale */
+.leaflet-control-scale {
+    margin-bottom: 10px !important;
+}

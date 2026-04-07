@@ -1,0 +1,137 @@
+/* general positioning */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#banner {
+    background: #5a7a9b;
+    color: white;
+    padding: 15px 20px 15px 10px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#banner h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#map {
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.leaflet-top.leaflet-right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+/* legend and control boxes */
+.legend, .control-box {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 180px;
+    margin-top: 10px;
+}
+
+.legend h4, .control-box h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* legend items */
+.legend div {
+    margin: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.legend div svg {
+    margin-top: 4px;
+}
+
+/* control buttons  */
+.control-button {
+    padding: 8px 16px;
+    margin: 0 0 5px 0;
+    border: 2px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.4;
+    transition: all 0.2s;
+    display: block;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.control-button:last-child {
+    margin-bottom: 0;
+}
+
+.control-button:hover {
+    border-color: #0066cc;
+    background: #f0f8ff;
+}
+
+.control-button.active {
+    background: #0066cc;
+    color: white;
+    border-color: #0066cc;
+}
+
+/* data attribution box */
+.data-attribution {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-size: 11px;
+    line-height: 1.4;
+    max-width: 220px;
+}
+
+/* north arrow */
+.north-arrow {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    width: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.north-arrow-inner {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.north-arrow-inner span {
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+}
+
+/* scale */
+.leaflet-control-scale {
+    margin-bottom: 10px !important;
+}

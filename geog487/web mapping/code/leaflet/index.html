@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Group 5's Leaflet Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./leaf.ico" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Leaflet CSS and JS  -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        
+        <!-- Esri Leaflet -->
+        <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+        
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    </head>
+
+    <body>
+        <!-- banner -->
+        <div id="banner">
+            <h1>Climate Change Factors and Reservoir Water Levels in Lethbridge from 2013 to 2024</h1>
+            <div id="info-icon" onclick="toggleInfoPopup()">?</div>
+            <div id="info-popup" class="hidden">
+                <p>Select a <b>Climate Change Factor</b> from the dropdown and click on a <b>Reservoir</b> (circle icon) to see it's name and current water level relative to the period of study (2013-2024). Further click on Show Graph to see a full graph of the water level at that location over time. Then move the slider to a month/year of interest to compare the data over time. Click on a <b>Lake/River</b> to see it's name and area.</p>
+                <br>
+                <p>Data was retrieved from the <a href="https://opendata.lethbridge.ca/">City of Lethbridge</a>, <a href="https://agriculture.canada.ca/imagery-images/rest/services/">Agriculture and Agri-Food Canada</a>, and <a href="https://wateroffice.ec.gc.ca/mainmenu/historical_data_index_e.html">Environment Canada</a>.</p>
+            </div>
+        </div>
+        
+        <!-- backdrop overlay -->
+        <div id="backdrop" class="hidden" onclick="toggleInfoPopup()"></div>
+        
+        <!-- graph modal -->
+        <div id="graph-modal" class="hidden">
+            <div id="graph-content">
+                <button id="close-graph" onclick="closeGraph()">&times;</button>
+                <h3 id="graph-title"></h3>
+                <canvas id="water-level-chart"></canvas>
+            </div>
+        </div>
+        <div id="graph-backdrop" class="hidden" onclick="closeGraph()"></div>
+        
+        <!-- date display -->
+        <div id="date-display">
+            <label>Date: <span id="dateLabel">October 2019</span></label>
+        </div>
+        
+        <!-- time slider controls -->
+        <div id="time-slider-controls">
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <div class="slider-track"></div>
+                    <div class="slider-ticks" id="sliderTicks"></div>
+                    <input type="range" id="timeSlider" min="0" max="143" value="81" step="1" oninput="updateClimateLayer()" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- main HTML div  -->
+        <div id="map"></div>
+
+        <!-- data JS connections -->
+        <script src="data/AlbertaWater.js"></script>
+        <script src="data/CityBoundary.js"></script>
+
+        <!-- main JS connections -->
+        <script src="utils.js"></script>
+        <script src="waterLevels.js"></script>
+        <script src="climateFactors.js"></script>
+        <script src="main.js"></script>
+    </body>
+
+</html>

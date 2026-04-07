@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Sarah's Leaflet Map</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="./globe.ico" />
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Leaflet CSS and JS  -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    </head>
+
+    <body>
+        <!-- banner -->
+        <div id="banner">
+            <h1>Drought Conditions in Southern Alberta in August 2019, 2024, and 2025</h1>
+        </div>
+        
+        <!-- main HTML div  -->
+        <div id="map"></div>
+
+        <!-- data JS connections -->
+        <script src="data/AlbertaWaterClip.js"></script>
+        <script src="data/CityBoundary.js"></script>
+        <script src="data/CDM_1908_D0_LR.js"></script>
+        <script src="data/CDM_1908_D1_LR.js"></script>
+        <script src="data/CDM_1908_D2_LR.js"></script>
+        <script src="data/CDM_2408_D0_LR.js"></script>
+        <script src="data/CDM_2408_D1_LR.js"></script>
+        <script src="data/CDM_2408_D2_LR.js"></script>
+        <script src="data/CDM_2408_D3_LR.js"></script>
+        <script src="data/CDM_2508_D0_LR.js"></script>
+        <script src="data/CDM_2508_D1_LR.js"></script>
+        <script src="data/CDM_2508_D2_LR.js"></script>
+        <script src="data/CDM_2508_D3_LR.js"></script>
+
+        <!-- main JS connections -->
+        <script src="drought.js"></script>
+        <script src="reservoirs.js"></script>
+        <script src="script.js"></script>
+    </body>
+
+</html>
